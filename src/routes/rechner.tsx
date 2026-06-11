@@ -70,6 +70,12 @@ function RechnerPage() {
       retirementAge,
     });
     setResult(r);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(
+        "rentenradar:last-result",
+        `Alter: ${age}, Bruttogehalt: ${salary} EUR/Monat, Status: ${employmentLabels[status]}, gearbeitete Jahre: ${yearsWorked}, gewünschtes Renteneintrittsalter: ${retirementAge}. Geschätzte gesetzliche Rente: ${formatEuro(r.estimatedPension)}/Monat, Rentenlücke: ${formatEuro(r.pensionGap)}/Monat, empfohlene Sparrate: ${formatEuro(r.recommendedMonthlySaving)}/Monat.`,
+      );
+    }
   }
 
   async function handleSave() {
