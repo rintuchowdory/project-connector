@@ -14,7 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      pension_calculations: {
+        Row: {
+          age: number
+          created_at: string
+          employment_status: string
+          estimated_pension: number
+          gross_salary: number
+          id: string
+          pension_gap: number
+          result: Json | null
+          retirement_age: number
+          user_id: string
+          years_worked: number
+        }
+        Insert: {
+          age: number
+          created_at?: string
+          employment_status: string
+          estimated_pension: number
+          gross_salary: number
+          id?: string
+          pension_gap: number
+          result?: Json | null
+          retirement_age: number
+          user_id: string
+          years_worked: number
+        }
+        Update: {
+          age?: number
+          created_at?: string
+          employment_status?: string
+          estimated_pension?: number
+          gross_salary?: number
+          id?: string
+          pension_gap?: number
+          result?: Json | null
+          retirement_age?: number
+          user_id?: string
+          years_worked?: number
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
